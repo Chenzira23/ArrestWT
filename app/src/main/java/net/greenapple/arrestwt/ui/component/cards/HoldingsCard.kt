@@ -7,7 +7,7 @@
  * Note:
  */
 
-package net.greenapple.arrestwt.ui.component
+package net.greenapple.arrestwt.ui.component.cards
 
 // ====== IMPORTS ======
 import net.greenapple.arrestwt.ui.appearance.ColorAppearance

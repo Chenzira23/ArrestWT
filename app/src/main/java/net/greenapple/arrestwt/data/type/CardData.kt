@@ -32,6 +32,7 @@ import kotlinx.serialization.Serializable
 data class CardData(
   val uuid:       String,
   val name:       String,
-  val hasImage:   Boolean = false,
-  val accounts:   List<String>
+  val hasImage:   Boolean         = false,
+  val accounts:   List<String?>?,
+  val tags:       List<String?>?  = null
 )

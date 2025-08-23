@@ -5,7 +5,7 @@
  */
 
 
-package net.greenapple.arrestwt.ui.component
+package net.greenapple.arrestwt.ui.component.cards
 
 // ====== IMPORTS ======
 import net.greenapple.arrestwt.ui.appearance.ColorAppearance
@@ -34,6 +34,7 @@ fun AccountCard(
   account:  AccountData,
   hidden:   Boolean     = false,
   colors:   CardColors? = null,
+  onClick:  () -> Unit  = {},
   modifier: Modifier?   = null
 ) {
 
@@ -49,6 +50,7 @@ fun AccountCard(
   Card(
     shape     = ShapeAppearance.primaryContainer,
     colors    = effectiveColors,
+    onClick   = onClick,
     modifier  = effectiveModifier
   ) {
 

@@ -4,9 +4,11 @@
  * Notes:
  */
 
-package net.greenapple.arrestwt.ui.component
+package net.greenapple.arrestwt.ui.component.settings
 
 // ====== IMPORTS ======
+import net.greenapple.arrestwt.ui.appearance.ColorAppearance
+import net.greenapple.arrestwt.ui.appearance.ShapeAppearance
 import net.greenapple.arrestwt.ui.appearance.TextAppearance
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -30,7 +32,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material.icons.Icons
@@ -45,7 +46,7 @@ fun HiddenTextSetting(
   loadValue:      suspend ()        -> String,
   onValueChange:  suspend (String)  -> Unit,
   buttonText:     String?           = null,
-  modifier:       Modifier          = Modifier
+  modifier:       Modifier?         = null
 ) {
 
   /* --- Local component values and variables */
@@ -66,13 +67,16 @@ fun HiddenTextSetting(
   var hidden      by remember { mutableStateOf(true) }
   var text        by remember { mutableStateOf("") }
 
+  val effectiveModifier: Modifier = modifier
+    ?: Modifier
+      .fillMaxWidth()
+      .padding(horizontal = 16.dp)
+
   /* ====== Component UI */
   Row(
     verticalAlignment     = Alignment.CenterVertically,
     horizontalArrangement = Arrangement.SpaceBetween,
-    modifier              = modifier
-      .fillMaxWidth()
-      .padding(horizontal = 16.dp)
+    modifier              = effectiveModifier
   ) {
 
     /* === Setting Name UI */
@@ -129,6 +133,8 @@ fun HiddenTextSetting(
           /* Load item text value */
           value = text,
 
+          shape = ShapeAppearance.oval,
+
           /* Default field text UI */
           label = {
             Text(
@@ -168,10 +174,12 @@ fun HiddenTextSetting(
             }
           },
 
-          modifier = modifier
+          modifier = Modifier
             .fillMaxWidth()
         )
       },
+
+      containerColor = ColorAppearance.backgroundColor,
 
       /* --- Popup dismiss action */
       onDismissRequest = { showDialog = false },
@@ -180,7 +188,7 @@ fun HiddenTextSetting(
       confirmButton = {
 
         /* Button UI */
-        TextButton(
+        Button(
           onClick = {
             scope.launch { onValueChange(text) }
             showDialog = false
@@ -199,7 +207,7 @@ fun HiddenTextSetting(
       dismissButton = {
 
         /* Button UI */
-        TextButton(
+        Button(
           onClick = {
             showDialog = false
           }

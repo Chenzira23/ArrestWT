@@ -43,5 +43,6 @@ data class AccountData(
   val type:             String          = "cash",
   @Serializable(with = BigDecimalAsStringSerializer::class)
   val balance:          BigDecimal      = BigDecimal.ZERO,
-  val hasImage:         Boolean         = false
+  val hasImage:         Boolean         = false,
+  val tags:             List<String?>?  = null
 )

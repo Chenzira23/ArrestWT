@@ -18,11 +18,11 @@ import androidx.compose.material3.Text
 import androidx.compose.foundation.layout.Column
 
 
-// ====== ADD TRANSACTION PAGE ======
+// ====== ADD TAG PAGE ======
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddTagPage(
-  onBack: () -> Unit = {}
+   onBack: () -> Unit = {}
 ) {
 
   /* ====== Start UI */
@@ -43,7 +43,7 @@ fun AddTagPage(
       }
     )
 
-    /* ====== No Profile Body */
+    /* ====== No Add Tags Body */
     DefaultPageBox(
       text  = "Tag management coming soon!",
     )

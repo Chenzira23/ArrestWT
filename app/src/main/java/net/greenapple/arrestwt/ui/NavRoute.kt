@@ -23,7 +23,7 @@ sealed class NavRoute(
   object Home: NavRoute(
     route = "home",
     label = "Home",
-    icon  = Icons.Outlined.Home
+    icon  = Icons.Outlined.Wallet
   )
 
   /* === Notifications Route */
@@ -44,34 +44,41 @@ sealed class NavRoute(
   object Transactions: NavRoute(
     route = "transactions",
     label = "Transactions",
-    icon  = Icons.Outlined.ShoppingCart
+    icon  = Icons.Outlined.ShoppingBag
   )
 
   /* === Accounts Route */
   object Accounts: NavRoute(
     route = "accounts",
     label = "Accounts & Cards",
-    icon  = Icons.Outlined.CreditCard
+    icon  = Icons.Outlined.AccountBalance
   )
 
   /* === Tags Route */
   object Tags: NavRoute(
     route = "tags",
     label = "Tags",
-    icon  = Icons.Outlined.CollectionsBookmark
+    icon  = Icons.Outlined.Label
   )
 
   /* === Add Transaction Route */
   object AddTransaction: NavRoute(
     route = "add-transaction",
     label = "Add Transaction",
-    icon  = Icons.Outlined.Money
+    icon  = Icons.Outlined.PriceChange
   )
 
   /* === Add Account Route */
   object AddAccount: NavRoute(
     route = "add-account",
     label = "Add Account",
+    icon  = Icons.Outlined.AddHome
+  )
+
+  /* === Add Card Route */
+  object AddCard: NavRoute(
+    route = "add-card",
+    label = "Add Card",
     icon  = Icons.Outlined.AddCard
   )
 
@@ -79,7 +86,7 @@ sealed class NavRoute(
   object AddTag: NavRoute(
     route = "add-tag",
     label = "Add Tag",
-    icon  = Icons.Outlined.LibraryAdd
+    icon  = Icons.Outlined.NewLabel
   )
 
   /* === Performance Route */

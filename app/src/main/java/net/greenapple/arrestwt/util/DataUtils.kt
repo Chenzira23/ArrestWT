@@ -27,10 +27,13 @@ import androidx.compose.runtime.produceState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.SerializationException
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.io.IOException
+import java.io.File
 import kotlin.collections.forEach
 
+/* ====== GETTING DATA ====== */
 /* ====== Return T From JSON */
 inline fun <reified T> String.getData(
   context:  Context
@@ -39,9 +42,10 @@ inline fun <reified T> String.getData(
   /* === Get the JSON as T */
   return try {
 
+    val file: File = File(context.filesDir, this)
+
     /* --- Get JSON as String */
-    val jsonStr = context.assets
-      .open(this)
+    val jsonStr = file
       .bufferedReader()
       .use { it.readText() }
 
@@ -74,14 +78,20 @@ inline fun <reified T> String.getAllData(
   /* === Get JSONs as T */
   return try {
 
+    val file: File = File(context.filesDir, dir)
+
+    if (!file.exists() || !file.isDirectory()) {
+      Log.e("DataUtils", "(getAllData) Cannot access $this")
+      null
+
     /* --- Get JSON list of type T */
-    context.assets
-      .list(dir)
-      .orEmpty()
-      .asSequence()
-      .filter { it.endsWith(".json") }
-      .mapNotNull { file -> "$dir/$file".getData<T>(context) }
-      .toList()
+    } else {
+      file.listFiles { entry ->
+        entry.isFile && entry.extension.equals("json", ignoreCase = true) }
+        ?.asSequence()
+        ?.mapNotNull { "$dir/${it.name}".getData<T>(context) }
+        ?.toList()
+    }
     
   /* === I/O Exception */
   } catch (e: IOException) {
@@ -140,3 +150,58 @@ val iconMap: Map<String, ImageVector> = mapOf(
   "Dining"    to Icons.Filled.Dining
 )
 fun String.getMaterialIcon(): ImageVector = iconMap[this] ?: Icons.Filled.QuestionMark
+
+/* ====== SETTING DATA ====== */
+fun CreateFile(
+  context:  Context,
+  path:     String,
+  data:     String
+) {
+
+  val file: File = File(context.filesDir, path)
+  file.parentFile?.mkdirs()
+  file.writeText(data)
+}
+
+fun String.deleteFile(
+  context:  Context,
+): Boolean {
+  
+  return try {
+    val targetFile: File = File(context.filesDir, this)
+    
+    if (targetFile.exists()) targetFile.delete()
+    else false
+
+  } catch (e: Exception) {
+    Log.e("DataUtils", "(deleteFile) Failed to delete $this", e)
+    e.printStackTrace()
+    false
+  }
+}
+
+inline fun <reified T> String.editData(
+  context:    Context,
+  transform:  (T) -> T
+): Boolean {
+
+  val targetFile: File  = File(context.filesDir, this)
+  val tmpFile:    File  = File(targetFile.parentFile, "${targetFile.name}.tmp")
+  val existing          = this.getData<T>(context) ?: return false
+  val transformed       = transform(existing)
+
+  return try {
+    tmpFile.writeText(Json.encodeToString(transformed))
+
+    if (!tmpFile.renameTo(targetFile)) {
+      targetFile.writeText(Json.encodeToString(transformed))
+      tmpFile.delete()
+    }
+    true
+
+  } catch (e: IOException) {
+    Log.e("DataUtils", "(editData) I/O Exception on $this", e)
+    e.printStackTrace()
+    false
+  }
+}

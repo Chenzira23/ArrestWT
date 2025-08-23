@@ -22,5 +22,6 @@ import kotlinx.serialization.Serializable
 data class PersonData(
   val uuid:     String,
   val name:     String,
-  val hasImage: Boolean = false
+  val hasImage: Boolean         = false,
+  val tags:     List<String?>?  = null
 )

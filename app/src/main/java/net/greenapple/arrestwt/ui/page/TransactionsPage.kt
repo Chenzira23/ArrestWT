@@ -12,8 +12,8 @@ import net.greenapple.arrestwt.ui.appearance.TextAppearance
 import net.greenapple.arrestwt.ui.component.DefaultPageBox
 import net.greenapple.arrestwt.ui.component.FloatingSheetButton
 import net.greenapple.arrestwt.ui.component.SheetButtonEntry
-import net.greenapple.arrestwt.ui.component.TransactionCard
 import net.greenapple.arrestwt.ui.component.VisibilityToggleButton
+import net.greenapple.arrestwt.ui.component.cards.TransactionCard
 import net.greenapple.arrestwt.ui.viewmodel.VisibilityViewModel
 import net.greenapple.arrestwt.data.type.TagData
 import net.greenapple.arrestwt.util.TransactionUtils
@@ -52,7 +52,6 @@ import kotlin.collections.emptyList
 fun TransactionsPage(
   visibilityViewModel:  VisibilityViewModel,
   onAccountsClick:        () -> Unit = {},
-  onTagsClick:            () -> Unit = {},
   onAddTransactionClick:  () -> Unit = {},
   onAddAccountClick:      () -> Unit = {},
   onAddTagsClick:         () -> Unit = {}
@@ -127,34 +126,15 @@ fun TransactionsPage(
           )
         },
 
-        /* === Top Buttons */
         actions = {
-          Row(
-            horizontalArrangement = Arrangement.spacedBy(6.dp),
-            verticalAlignment     = Alignment.CenterVertically,
-            modifier              = Modifier
-              .padding(end = 6.dp)
+          /* --- Add accounts navigation button */
+          IconButton(
+            onClick = onAccountsClick
           ) {
-
-            /* --- Add tags navigation button */
-            IconButton(
-              onClick = onTagsClick
-            ) {
-              Icon(
-                NavRoute.Tags.icon,
-                contentDescription = NavRoute.Tags.label
-              )
-            }
-
-            /* --- Add accounts navigation button */
-            IconButton(
-              onClick = onAccountsClick
-            ) {
-              Icon(
-                NavRoute.Accounts.icon,
-                contentDescription = NavRoute.Accounts.label
-              )
-            }
+            Icon(
+              imageVector         = NavRoute.Accounts.icon,
+              contentDescription  = NavRoute.Accounts.label
+            )
           }
         }
       )

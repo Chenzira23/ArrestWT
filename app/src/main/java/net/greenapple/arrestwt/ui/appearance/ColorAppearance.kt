@@ -33,6 +33,7 @@ class ColorAppearance {
     val flatBackground:     Color               @Composable get() = colorScheme.outline.copy(alpha = 0.3f)
     val flat:               Pair<Color, Color>  @Composable get() = Pair(flatForeground, flatBackground)
 
+    val backgroundColor:    Color               @Composable get() = colorScheme.background
     val containerColor:     Color               @Composable get() = colorScheme.surfaceVariant
     val sheetColor:         Color               @Composable get() = colorScheme.surface
     val covertColor:        Color               @Composable get() = colorScheme.outline.copy(alpha = 0.6f)

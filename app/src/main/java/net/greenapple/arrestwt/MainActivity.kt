@@ -166,6 +166,7 @@ class MainActivity: ComponentActivity()
         val onTagsClick           = { navController.navigate(NavRoute.Tags.route, topTabOptions)}
         val onAddTransactionClick = { navController.navigate(NavRoute.AddTransaction.route, topTabOptions) }
         val onAddAccountClick     = { navController.navigate(NavRoute.AddAccount.route, topTabOptions) }
+        val onAddCardClick        = { navController.navigate(NavRoute.AddCard.route, topTabOptions) }
         val onAddTagsClick        = { navController.navigate(NavRoute.AddTag.route, topTabOptions) }
         val onEducateClick        = { navController.navigate(NavRoute.Educate.route, topTabOptions) }
 
@@ -186,20 +187,30 @@ class MainActivity: ComponentActivity()
           TransactionsPage(
             visibilityViewModel   = visibilityViewModel,
             onAccountsClick       = onAccountsClick,
-            onTagsClick           = onTagsClick,
             onAddTransactionClick = onAddTransactionClick,
             onAddAccountClick     = onAddAccountClick,
             onAddTagsClick        = onAddTagsClick
           )
         }
-        composable(NavRoute.Accounts.route)       { AccountsPage(onBack) }
+        composable(NavRoute.Accounts.route)       {
+          AccountsPage(
+            onAddAccountClick = onAddAccountClick,
+            onAddCardClick    = onAddCardClick,
+            onBack            = onBack
+          )
+        }
         composable(NavRoute.Tags.route)           { TagsPage(onBack) }
         composable(NavRoute.AddAccount.route)     { AddAccountPage(onBack) }
+        composable(NavRoute.AddCard.route)        { AddCardPage(onBack) }
         composable(NavRoute.AddTransaction.route) { AddTransactionPage(onBack) }
         composable(NavRoute.AddTag.route)         { AddTagPage(onBack) }
 
         /* Performance related */
-        composable(NavRoute.Performance.route)    { PerformancePage() }
+        composable(NavRoute.Performance.route)    {
+          PerformancePage(
+            onTagsClick = onTagsClick
+          )
+        }
 
         /* Search related */
         composable(NavRoute.Search.route)         { SearchPage() }

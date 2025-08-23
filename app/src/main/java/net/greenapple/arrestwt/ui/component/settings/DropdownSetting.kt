@@ -4,7 +4,7 @@
  * Note: Button component for a SettingsPage listing
  */
 
-package net.greenapple.arrestwt.ui.component
+package net.greenapple.arrestwt.ui.component.settings
 
 /* Imports */
 import androidx.compose.foundation.layout.Arrangement
@@ -34,12 +34,13 @@ import net.greenapple.arrestwt.ui.appearance.TextAppearance
 
 // ====== DROPDOWN SETTING COMPONENT ======
 @Composable
-fun DropdownSetting(
+fun <T> DropdownSettingData(
   settingName:      String,
-  options:          List<String>,
-  selectedOption:   String,
-  onOptionSelected: (String) -> Unit,
-  modifier:         Modifier      = Modifier
+  options:          List<Pair<T, String>>,
+  selectedOption:   Pair<T, String>?,
+  onOptionSelected: (Pair<T, String>) -> Unit = {},
+  placeholder:      String                    = "Select...",
+  modifier:         Modifier                  = Modifier
 ) {
 
   /* --- Local component values and variables */
@@ -73,7 +74,7 @@ fun DropdownSetting(
 
         /* --- Dropdown selected option text */
         Text(
-          text  = selectedOption,
+          text  = if (selectedOption == null) placeholder else selectedOption.second,
           style = TextAppearance.label
         )
 
@@ -98,7 +99,7 @@ fun DropdownSetting(
 
             text = { 
               Text(
-                text  = option,
+                text  = option.second,
                 style = TextAppearance.label
                 ) 
             },
@@ -113,3 +114,20 @@ fun DropdownSetting(
     }
   }
 }
+
+@Composable
+fun DropdownSetting(
+  settingName:      String,
+  options:          List<String>,
+  selectedOption:   String,
+  onOptionSelected: (String) -> Unit  = {},
+  placeholder:      String            = "Select...",
+  modifier:         Modifier          = Modifier
+) = DropdownSettingData(
+  settingName       = settingName,
+  options           = options.map { it to it },
+  selectedOption    = Pair(selectedOption, selectedOption),
+  onOptionSelected  = { onOptionSelected(it.first) },
+  placeholder       = placeholder,
+  modifier          = modifier
+)

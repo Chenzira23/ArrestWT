@@ -8,12 +8,13 @@ package net.greenapple.arrestwt.ui.page
 
 // ====== IMPORTS ======
 import net.greenapple.arrestwt.ui.NavRoute
-import net.greenapple.arrestwt.ui.component.ButtonSetting
+
 import net.greenapple.arrestwt.ui.appearance.TextAppearance
 import net.greenapple.arrestwt.ui.viewmodel.SettingsViewModel
-import net.greenapple.arrestwt.ui.component.DropdownSetting
-import net.greenapple.arrestwt.ui.component.HiddenTextSetting
 import net.greenapple.arrestwt.ui.component.BackButton
+import net.greenapple.arrestwt.ui.component.settings.ButtonSetting
+import net.greenapple.arrestwt.ui.component.settings.DropdownSetting
+import net.greenapple.arrestwt.ui.component.settings.HiddenTextSetting
 import net.greenapple.arrestwt.util.ThemeUtils
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState

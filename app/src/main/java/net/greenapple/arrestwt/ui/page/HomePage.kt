@@ -12,9 +12,9 @@ import net.greenapple.arrestwt.ui.appearance.ColorAppearance
 import net.greenapple.arrestwt.ui.appearance.TextAppearance
 import net.greenapple.arrestwt.ui.appearance.ShapeAppearance
 import net.greenapple.arrestwt.ui.appearance.LayoutAppearance
-import net.greenapple.arrestwt.ui.component.HoldingsCard
 import net.greenapple.arrestwt.ui.component.VisibilityToggleButton
 import net.greenapple.arrestwt.ui.component.badges.TextBadge
+import net.greenapple.arrestwt.ui.component.cards.HoldingsCard
 import net.greenapple.arrestwt.ui.viewmodel.VisibilityViewModel
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize

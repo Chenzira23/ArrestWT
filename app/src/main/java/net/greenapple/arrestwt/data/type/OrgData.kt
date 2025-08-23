@@ -33,8 +33,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class OrgData(
   val id:       String,
-  val copy:     String? = null,
-  val name:     String? = null,
-  val hasImage: Boolean = false,
-  val icon:     String? = null
+  val copy:     String?         = null,
+  val name:     String?         = null,
+  val hasImage: Boolean         = false,
+  val icon:     String?         = null,
+  val tags:     List<String?>?  = null
 )
