@@ -6,5 +6,5 @@ gradlew.bat
 Formatting.txt
 .vscode/
 app/build/
-app/assets/user/**/*.json
-app/assets/user/**/*.png
+app/src/main/java/net/greenapple/arrestwt/assets/user/**/*.json
+app/src/main/java/net/greenapple/arrestwt/assets/user/**/*.png
