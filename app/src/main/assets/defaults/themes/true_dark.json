@@ -1,0 +1,10 @@
+{
+  "name": "True Dark",
+  "onPrimary": "#FFFFFF",
+  "background": "#000000",
+  "onBackground": "#FFFFFF",
+  "surface": "#000000",
+  "onSurface": "#FFFFFF",
+  "error": "#CF6679",
+  "onError": "#000000"
+}

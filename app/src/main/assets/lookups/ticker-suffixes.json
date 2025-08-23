@@ -1,0 +1,172 @@
+[
+  {
+    "suffix": ".TO",
+    "meaning": "Toronto Stock Exchange (TSX)",
+    "notes": "Common Canadian large-cap listings"
+  },
+  {
+    "suffix": ".V",
+    "meaning": "TSX Venture Exchange (TSXV)",
+    "notes": "Early-stage or smaller Canadian companies"
+  },
+  {
+    "suffix": ".CN",
+    "meaning": "Canadian Securities Exchange (CSE)",
+    "notes": "Alternative exchange for startups/small-caps"
+  },
+  {
+    "suffix": ".CNSX",
+    "meaning": "Alias for CSE",
+    "notes": "Legacy or alternate formatting"
+  },
+  {
+    "suffix": ".NE",
+    "meaning": "NEO Exchange (Cboe Canada)",
+    "notes": "Focused on ETFs, innovation, and SPACs"
+  },
+  {
+    "suffix": ".UN.TO",
+    "meaning": "TSX Trust/REIT Unit",
+    "notes": "Used by Canadian REITs and income trusts"
+  },
+  {
+    "suffix": ".WT",
+    "meaning": "Warrant",
+    "notes": "Common on CSE/TSX for derivative security"
+  },
+  {
+    "suffix": ".WT.U",
+    "meaning": "Warrant Unit",
+    "notes": "Package of warrants or structured rights"
+  },
+  {
+    "suffix": ".U.TO",
+    "meaning": "Unit (Canada)",
+    "notes": "Often a stock + warrant combo"
+  },
+  {
+    "suffix": ".A",
+    "meaning": "Class A share",
+    "notes": "Voting or economic right differences"
+  },
+  {
+    "suffix": ".B",
+    "meaning": "Class B share",
+    "notes": "May have limited voting rights"
+  },
+  {
+    "suffix": ".C",
+    "meaning": "Class C share",
+    "notes": "Used in multi-class structures"
+  },
+  {
+    "suffix": ".N",
+    "meaning": "NYSE",
+    "notes": "Rarely used, available on some feeds"
+  },
+  {
+    "suffix": ".O",
+    "meaning": "NASDAQ",
+    "notes": "Alternate suffix (sometimes .Q)"
+  },
+  {
+    "suffix": ".U",
+    "meaning": "Unit (SPAC-related)",
+    "notes": "Stock + warrant package (temporary)"
+  },
+  {
+    "suffix": ".WS",
+    "meaning": "Warrant (Share)",
+    "notes": "Common in SPACs and IPOs"
+  },
+  {
+    "suffix": ".WT.A",
+    "meaning": "Warrant Class A",
+    "notes": "Multiple series of warrants"
+  },
+  {
+    "suffix": ".WT.B",
+    "meaning": "Warrant Class B",
+    "notes": "Multiple series of warrants"
+  },
+  {
+    "suffix": ".PRA",
+    "meaning": "Preferred Shares Class A",
+    "notes": "Various classes of preferred equity"
+  },
+  {
+    "suffix": ".PRB",
+    "meaning": "Preferred Shares Class B",
+    "notes": "Various classes of preferred equity"
+  },
+  {
+    "suffix": ".PRC",
+    "meaning": "Preferred Shares Class C",
+    "notes": "Various classes of preferred equity"
+  },
+  {
+    "suffix": ".PK",
+    "meaning": "OTC Pink Sheets",
+    "notes": "Unregulated, lightly traded"
+  },
+  {
+    "suffix": ".OB",
+    "meaning": "OTC Bulletin Board",
+    "notes": "Discontinued but still seen"
+  },
+  {
+    "suffix": ".F",
+    "meaning": "Foreign Listing",
+    "notes": "Used to show foreign trades"
+  },
+  {
+    "suffix": ".L",
+    "meaning": "London Stock Exchange",
+    "notes": "Used on Yahoo Finance"
+  },
+  {
+    "suffix": ".AX",
+    "meaning": "Australian Securities Exchange",
+    "notes": "Australia listings"
+  },
+  {
+    "suffix": ".HK",
+    "meaning": "Hong Kong Stock Exchange",
+    "notes": "Asia-Pacific"
+  },
+  {
+    "suffix": ".PA",
+    "meaning": "Euronext Paris",
+    "notes": "European listings"
+  },
+  {
+    "suffix": ".DE",
+    "meaning": "Deutsche Börse / XETRA",
+    "notes": "Germany listings"
+  },
+  {
+    "suffix": ".IS",
+    "meaning": "Borsa Istanbul",
+    "notes": "Turkey"
+  },
+  {
+    "suffix": ".SW",
+    "meaning": "SIX Swiss Exchange",
+    "notes": "Switzerland"
+  },
+  {
+    "suffix": ".T",
+    "meaning": "Tokyo Stock Exchange",
+    "notes": "Japan (used by Reuters)"
+  },
+  {
+    "suffix": ".SS",
+    "meaning": "Shanghai Stock Exchange",
+    "notes": "Mainland China"
+  },
+  {
+    "suffix": ".SZ",
+    "meaning": "Shenzhen Stock Exchange",
+    "notes": "Mainland China"
+  }
+]

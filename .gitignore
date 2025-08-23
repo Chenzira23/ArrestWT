@@ -1,0 +1,10 @@
+.gradle/
+gradle/
+*.zip
+gradlew
+gradlew.bat
+Formatting.txt
+.vscode/
+app/build/
+app/assets/user/**/*.json
+app/assets/user/**/*.png

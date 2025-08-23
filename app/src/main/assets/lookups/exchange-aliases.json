@@ -1,0 +1,117 @@
+[
+  {
+    "abbreviation": "AMEX",
+    "full_name": "NYSE American (formerly American Stock Exchange)",
+    "region": "United States"
+  },
+  {
+    "abbreviation": "ASX",
+    "full_name": "Australian Securities Exchange",
+    "region": "Australia"
+  },
+  {
+    "abbreviation": "BIST",
+    "full_name": "Borsa Istanbul",
+    "region": "Turkey"
+  },
+  {
+    "abbreviation": "BME",
+    "full_name": "Bolsa de Madrid",
+    "region": "Spain"
+  },
+  {
+    "abbreviation": "BSE",
+    "full_name": "Bombay Stock Exchange",
+    "region": "India"
+  },
+  {
+    "abbreviation": "CSE",
+    "full_name": "Canadian Securities Exchange",
+    "region": "Canada"
+  },
+  {
+    "abbreviation": "EURONEXT",
+    "full_name": "Euronext (Paris, Amsterdam, Brussels, etc.)",
+    "region": "Europe (multi-country)"
+  },
+  {
+    "abbreviation": "HKEX",
+    "full_name": "Hong Kong Stock Exchange",
+    "region": "Hong Kong"
+  },
+  {
+    "abbreviation": "JSE",
+    "full_name": "Johannesburg Stock Exchange",
+    "region": "South Africa"
+  },
+  {
+    "abbreviation": "LSE",
+    "full_name": "London Stock Exchange",
+    "region": "United Kingdom"
+  },
+  {
+    "abbreviation": "NASDAQ",
+    "full_name": "NASDAQ Stock Market",
+    "region": "United States"
+  },
+  {
+    "abbreviation": "NEO",
+    "full_name": "NEO Exchange (Cboe Canada)",
+    "region": "Canada"
+  },
+  {
+    "abbreviation": "NSE",
+    "full_name": "National Stock Exchange of India",
+    "region": "India"
+  },
+  {
+    "abbreviation": "NYSE",
+    "full_name": "New York Stock Exchange",
+    "region": "United States"
+  },
+  {
+    "abbreviation": "OTC",
+    "full_name": "Over-the-Counter Markets",
+    "region": "United States"
+  },
+  {
+    "abbreviation": "SIX",
+    "full_name": "SIX Swiss Exchange",
+    "region": "Switzerland"
+  },
+  {
+    "abbreviation": "SSE",
+    "full_name": "Shanghai Stock Exchange",
+    "region": "China"
+  },
+  {
+    "abbreviation": "SZSE",
+    "full_name": "Shenzhen Stock Exchange",
+    "region": "China"
+  },
+  {
+    "abbreviation": "TSE",
+    "full_name": "Tokyo Stock Exchange",
+    "region": "Japan"
+  },
+  {
+    "abbreviation": "TSX",
+    "full_name": "Toronto Stock Exchange",
+    "region": "Canada"
+  },
+  {
+    "abbreviation": "TSX Alpha",
+    "full_name": "Alpha Exchange (subsidiary of TMX)",
+    "region": "Canada"
+  },
+  {
+    "abbreviation": "TSXV",
+    "full_name": "TSX Venture Exchange",
+    "region": "Canada"
+  },
+  {
+    "abbreviation": "XETRA",
+    "full_name": "Deutsche Börse / XETRA",
+    "region": "Germany"
+  }
+]
