@@ -2,17 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [0.0.1] - 2025-08-23
 
 ### Added
 
-- `ApiKeyStore` class using `EncryptedSharedPreferences` for secure API key storage.
-- Added `androidx.security:security-crypto` dependency.
-
-### Removed
-
-- API key preferences (`API_KEY_FMP`, `API_KEY_AV`), flows and save methods from `DataStore`.
+- Pushed all work to github.
 
 ### Changed
 
-- `DataStore` no longer handles API keys; use `ApiKeyStore` for all API key operations.
+- Updated CHANGELOG.md to be more accurate.
+
+### Removed
+
+- All JSONs and PNGs relating to the user have been removed. Adding these locally is inteded for testing purposes. 

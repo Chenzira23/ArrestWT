@@ -50,7 +50,7 @@ sealed class NavRoute(
   /* === Accounts Route */
   object Accounts: NavRoute(
     route = "accounts",
-    label = "Accounts",
+    label = "Accounts & Cards",
     icon  = Icons.Outlined.CreditCard
   )
 

@@ -61,12 +61,15 @@ data class ShowcaseCardEntry(
 // ====== SHOWCASE CARD COMPONENT ======
 @Composable
 fun ShowcaseCard(
-  title:    String                    = "List",
-  items:    List<ShowcaseCardEntry>?  = null,
-  hidden:   Boolean                   = false,
-  colors:   CardColors?               = null,
-  modifier: Modifier?                 = null
+  title:      String                    = "List",
+  emptyText:  String                    = "There are no items to display!",
+  items:      List<ShowcaseCardEntry>?  = null,
+  hidden:     Boolean                   = false,
+  colors:     CardColors?               = null,
+  modifier:   Modifier?                 = null
 ) {
+
+  val effectiveItems: List<ShowcaseCardEntry>? = if (items != null && items.isEmpty()) null else items
 
   /* --- Card values */
   val effectiveColors: CardColors = colors
@@ -121,12 +124,12 @@ fun ShowcaseCard(
             .fillMaxSize()
         ) {
 
-          if (items != null) {
+          if (effectiveItems != null) {
 
             /* --- Move to last entry button */
             IconButton(
               onClick = {
-                if (index <= 0) index = ((items?.size) ?: 1) - 1
+                if (index <= 0) index = Math.max(0, effectiveItems.size - 1)
                 else index--
               }
             ) {
@@ -141,7 +144,7 @@ fun ShowcaseCard(
             /* --- Item display */
             Surface(
               color     = ColorAppearance.flatBackground,
-              onClick   = items[index].onClick,
+              onClick   = effectiveItems[index].onClick,
               modifier  = Modifier
                 .weight(1f)
                 .fillMaxHeight()
@@ -150,17 +153,17 @@ fun ShowcaseCard(
             ) {
               
               /* If the item is an image */
-              if (items[index].display is ImageBitmap) {
+              if (effectiveItems[index].display is ImageBitmap) {
                 Image(
-                  bitmap              = items[index].display as ImageBitmap,
+                  bitmap              = effectiveItems[index].display as ImageBitmap,
                   contentDescription  = "$title index $index image",
                   contentScale        = ContentScale.Crop
                 )
                   
               /* If the item is an icon */
-              } else if (items[index].display is ImageVector) {
+              } else if (effectiveItems[index].display is ImageVector) {
                 Icon(
-                  imageVector         = items[index].display as ImageVector,
+                  imageVector         = effectiveItems[index].display as ImageVector,
                   contentDescription  = "$title index $index icon",
                   modifier            = Modifier
                     .fillMaxSize()
@@ -178,7 +181,7 @@ fun ShowcaseCard(
             /* --- Move to next entry button */
             IconButton(
               onClick = {
-                if (index >= items.size - 1) index = 0
+                if (index >= effectiveItems.size - 1) index = 0
                 else index++
               }
             ) {
@@ -190,30 +193,29 @@ fun ShowcaseCard(
 
           } else {
             Text(
-              text  = "Nothing to display",
-              style = TextAppearance.display
+              text  = emptyText,
+              style = TextAppearance.body
             )
           }
         }
       }
 
       /* === Detials Text */
-      if (items != null) {
+      if (effectiveItems != null) {
         Text(
-          text      = items[index].details,
+          text      = effectiveItems[index].details,
           style     = TextAppearance.body,
           color     = ColorAppearance.covertColor,
           modifier  = Modifier
             .padding(8.dp)
         )
-      }
-      
 
-      /* === Index  */
-      Text(
-        text  = "${index + 1} / ${(items?.size ?: 0)}",
-        style = TextAppearance.valueMedium,
-      )
+        /* === Index  */
+        Text(
+          text  = "${index + 1} / ${(items?.size ?: 0)}",
+          style = TextAppearance.valueMedium,
+        )
+      }
     }
   }
 }

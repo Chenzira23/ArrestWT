@@ -1,10 +1,13 @@
+# Gradle caches/build outputs
 .gradle/
-gradle/
-*.zip
-gradlew
-gradlew.bat
-Formatting.txt
-.vscode/
 app/build/
-app/src/main/java/net/greenapple/arrestwt/assets/user/**/*.json
-app/src/main/java/net/greenapple/arrestwt/assets/user/**/*.png
+
+# IDE/project files
+.vscode/
+
+# Archives
+*.zip
+
+# Ignore all JSON/PNG under app/src/main/assets/user/** recursively
+app/src/main/assets/user/**/*.json
+app/src/main/assets/user/**/*.png
