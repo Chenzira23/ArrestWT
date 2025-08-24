@@ -10,7 +10,7 @@ This file will contian planned upcoming features and related ideas.
 - [ ] (v0.0.2-present) :yellow_circle: Let users add accounts, cards, tags, transactions, etc.
 - [ ] :yellow_circle: Image uploading for profile pictures, cards, accounts, etc.
 - [ ] :green_circle: Theme and other JSON uploading.
-- [ ] :yellow_circle Track groups of accounts on the home page.
+- [ ] :yellow_circle: Track groups of accounts on the home page.
 - [ ] :green_circle: Default card and account images/colors.
 - [ ] :yellow_circle: Reminder notifications.
 - [ ] :red_circle: Whole or specific portfolio performance tracking.
