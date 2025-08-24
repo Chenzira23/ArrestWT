@@ -1,4 +1,7 @@
-# Welcome to ArrestWT
+# <p align="center">Welcome to ArrestWT</p>
+
+<p align="center"> <img src=app/src/main/res/mipmap-xxxhdpi/ic_launcher.png/> </p>
+
 ArrestWT is a money management tool available for Android devices. It is currently in extremely early development, and is not ready for actual use as of 2025-08-23. Please see the [Roadmap](ROADMAP.md) for planned features and bug fixes.
 
 ## Supported Platforms
@@ -14,7 +17,7 @@ Currently, I do not suggest anyone use the application with their personal infor
 > Note that there will never be any form of promise that your transaction data will be 100% secure at any stage of this project, but it is taken seriously in development. USE AT YOUR OWN RISK!
 
 ### Who are Chenzira23 and GreenApple?
-Both are me, I apologize for any confusion.
+Both are me, I apologize for any confusion that may cause :/
 
 ### How can/is AI used in this project?
 I use Codex to help catch/fix bugs, summarize/add comments to code, experiment with UI layouts and other things here and there. Artwork and related assets MAY be generated, but are primarily used for testing purposes since most assets are uploaded on the user's side.
