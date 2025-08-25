@@ -22,3 +22,6 @@ Both are me, I apologize for any confusion that may cause :/
 ### How can/is AI used in this project?
 I use Codex to help catch/fix bugs, summarize/add comments to code, experiment with UI layouts and other things here and there. Artwork and related assets MAY be generated, but are primarily used for testing purposes since most assets are uploaded on the user's side.
 Althought not currently planned, there is no promise that AI will not eventually be implemented locally or remotely (through self-hosting or API keys) within this application.
+
+### Why the name ArrestWT?
+.WT is a suffix donting a warrant in finance. ArrestWT (or Arrest.WT) is supposed to be a play on words. In my defense, I couldn't think of anything else.
