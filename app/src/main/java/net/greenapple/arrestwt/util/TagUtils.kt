@@ -37,7 +37,7 @@ object TagUtils {
     /* --- Get hue */
     val n       = (hash[0].toUByte().toInt() shl 16)  or
                   (hash[1].toUByte().toInt() shl 8)   or
-                  hash[3].toUByte().toInt()
+                  hash[2].toUByte().toInt()
     val hue     = (n % 360).toFloat()
 
     /* --- Get color */
