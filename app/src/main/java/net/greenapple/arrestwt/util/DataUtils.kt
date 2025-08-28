@@ -12,6 +12,7 @@ import net.greenapple.arrestwt.data.type.AccountData
 import net.greenapple.arrestwt.data.type.CardData
 import net.greenapple.arrestwt.data.type.OrgData
 import net.greenapple.arrestwt.data.type.PersonData
+import net.greenapple.arrestwt.data.type.TagData
 import net.greenapple.arrestwt.util.paths.*
 import android.content.Context
 import android.util.Log
@@ -142,7 +143,7 @@ fun String.getAccount(context: Context):  AccountData?  = this.asAccountName().i
 fun String.getCard(context: Context):     CardData?     = this.asCardName().inCards().getData(context)
 fun String.getOrg(context: Context):      OrgData?      = this.asOrgName().inOrgs().getData(context)
 fun String.getPerson(context: Context):   PersonData?   = this.asPersonName().inPeople().getData(context)
-fun String.getTag(context: Context):      PersonData?   = this.asTagName().inTags().getData(context)
+fun String.getTag(context: Context):      TagData?      = this.asTagName().inTags().getData(context)
 
 /* ====== Get Material Icon Using Icon Map */
 val iconMap: Map<String, ImageVector> = mapOf(
