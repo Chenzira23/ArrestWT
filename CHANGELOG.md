@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.3] - 2025-09-02
+
+### Fixed
+
+- Starting page setting will now be able to be set and function correctly. (Fixes: #7)
+- getTag function in DataUtils now returns the correct type TagData instead of PersonData. (Fixes: #1)
+- Fixed typo on the transactions page when no transactions are loaded. (Fixes: #11)
+
+### Changed
+
+- Updated README to not include outdated information. (Fixes: #14)
+
 ## [0.0.2] - 2025-08-24
 
 ### Added
