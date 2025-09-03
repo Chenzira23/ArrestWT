@@ -53,8 +53,8 @@ fun SettingsPage(
 
   /* === Page Values */
   val startingPageLabels        = remember { NavRoute.bottomNavRoutes.map { it.label } }
-  val startingPageLabelsByRoute = remember { NavRoute.bottomNavRoutes.associate { it.label to it.route } }
-  val startingPageRoutesByLabel = remember { NavRoute.bottomNavRoutes.associate { it.route to it.label } }
+  val startingPageLabelsByRoute = remember { NavRoute.bottomNavRoutes.associate { it.route to it.label } }
+  val startingPageRoutesByLabel = remember { NavRoute.bottomNavRoutes.associate { it.label to it.route } }
   val selectedStartingPage      by settingsViewModel.selectedStartingPageFlow.collectAsState()
 
   val startingPageSafePage      = remember(selectedStartingPage) {
