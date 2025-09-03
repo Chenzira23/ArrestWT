@@ -165,7 +165,7 @@ fun TransactionsPage(
 
         /* ====== No Transactions Default Body */
         DefaultPageBox(
-          text  = "Transactions could no be loaded...",
+          text  = "Transactions could not be loaded...",
         )
       }
     }
