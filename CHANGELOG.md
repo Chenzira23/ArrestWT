@@ -2,17 +2,6 @@
 
 All notable changes to this project will be documented in this file.
 
-### [0.0.3] - 2025-09-02
-
-### Fixed
-
-- Selected starting page setting will now work (Fixes: #7)
-- getTag function in DataUtils now returns the correct data type TagData instead of PersonData
-
-### Changed
-
-- README has been updated to not include outdated information
-
 ## [0.0.2] - 2025-08-24
 
 ### Added
