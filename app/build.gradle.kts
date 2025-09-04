@@ -16,8 +16,13 @@ android {
     applicationId = "net.greenapple.arrestwt"
     minSdk        = 26
     targetSdk     = 34
+<<<<<<< HEAD
     versionCode   = 1
     versionName   = "0.0.2"
+=======
+    versionCode   = 4
+    versionName   = "0.0.4"
+>>>>>>> 02a7cd8 (fix: Bump versionCode and versionName to v0.0.4 (Fixes: #34, #36))
   }
 
   signingConfigs {
