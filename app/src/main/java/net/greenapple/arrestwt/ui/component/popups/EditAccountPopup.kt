@@ -84,7 +84,7 @@ fun EditAccountPopup(
 
               Button(
                 onClick = {
-                  account.uuid.asAccountName().inAccounts().deleteFile(context)
+                  account.uuid.deleteAccount(context)
                   onDismissRequest()
                 }
               ) {
@@ -106,7 +106,7 @@ fun EditAccountPopup(
     confirmButton = {
       Button(
         onClick = {
-          account.uuid.asAccountName().inAccounts().editData<AccountData>(context) { it.copy(name = accountName) }
+          account.uuid.editAccount(context) { it.copy(name = accountName) }
           onDismissRequest()
         }
       ) {

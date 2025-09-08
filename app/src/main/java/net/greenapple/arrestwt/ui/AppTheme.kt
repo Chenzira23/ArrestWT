@@ -8,7 +8,9 @@ package net.greenapple.arrestwt.ui
 
 // ====== IMPORTS ======
 import net.greenapple.arrestwt.ui.viewmodel.SettingsViewModel
-import net.greenapple.arrestwt.util.ThemeUtils
+import net.greenapple.arrestwt.util.data.*
+import net.greenapple.arrestwt.util.paths.*
+import net.greenapple.arrestwt.data.type.ThemeData
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -28,15 +30,15 @@ fun AppTheme(
 ) {
 
   /* --- Get current local context */
-  val context       = LocalContext.current
+  val context = LocalContext.current
 
   /* --- Get selected theme flow */
-  val selectedTheme by settingsViewModel.selectedThemeFlow.collectAsState()
+  val selectedTheme: String by settingsViewModel.selectedThemeFlow.collectAsState()
 
   /* --- Load theme names mapped to files */
-  val themeMap      = remember { ThemeUtils.listDefaultJsonThemes(context) }
+  val themeMap: Map<String, ThemeData> = remember { getAllThemes(context).associate { it.name to it } }
 
-  val colorScheme   = remember(selectedTheme) {
+  val colorScheme = remember(selectedTheme) {
 
     /* Apply theme based on selection */
     when (selectedTheme) {
@@ -44,15 +46,9 @@ fun AppTheme(
       "Dark"  -> darkColorScheme()
       else    -> {
 
-        /* Try to load thems from file or use dark if failed */
+        /* Try to load theme from file or use dark if null or failure */
         try {
-          val fileName = themeMap[selectedTheme]
-          fileName?.let {
-            ThemeUtils
-              .loadThemeFromJson(context, it)
-              ?.toColorScheme()
-          } ?: darkColorScheme()
-
+          themeMap[selectedTheme]?.toColorScheme() ?: darkColorScheme()
         } catch (e: Exception) {
           darkColorScheme()
         }

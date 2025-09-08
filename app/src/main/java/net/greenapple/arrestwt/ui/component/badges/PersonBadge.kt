@@ -10,7 +10,6 @@
 package net.greenapple.arrestwt.ui.component.badges
 
 // ====== IMPORTS ======
-import net.greenapple.arrestwt.data.AssetPaths
 import net.greenapple.arrestwt.data.type.PersonData
 import net.greenapple.arrestwt.ui.appearance.ColorAppearance
 import net.greenapple.arrestwt.ui.appearance.TextAppearance
@@ -93,7 +92,7 @@ fun PersonBadge(
     } else if (person.hasImage) {
 
       /* --- Get image or null */
-      val image: ImageBitmap? = person.uuid.asPersonImageName().inPersonImages().getImage(LocalContext.current)
+      val image: ImageBitmap? = person.uuid.asPersonImageName().inPersonImages()?.getImage(LocalContext.current)
 
       /* --- Image UI */
       if (image != null) {

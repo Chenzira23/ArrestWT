@@ -85,7 +85,7 @@ fun EditCardPopup(
 
               Button(
                 onClick = {
-                  card.uuid.asCardName().inCards().deleteFile(context)
+                  card.uuid.deleteCard(context)
                   onDismissRequest()
                 }
               ) {
@@ -107,7 +107,7 @@ fun EditCardPopup(
     confirmButton = {
       TextButton(
         onClick = {
-          card.uuid.asCardName().inCards().editData<CardData>(context) { it.copy(name = cardName) }
+          card.uuid.editCard(context) { it.copy(name = cardName) }
           onDismissRequest()
         }
       ) {

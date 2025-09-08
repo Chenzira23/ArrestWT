@@ -7,7 +7,6 @@
 package net.greenapple.arrestwt.ui.component.badges
 
 // ====== IMPORTS ======
-import net.greenapple.arrestwt.data.AssetPaths
 import net.greenapple.arrestwt.data.type.OrgData
 import net.greenapple.arrestwt.ui.appearance.ColorAppearance
 import net.greenapple.arrestwt.ui.appearance.ShapeAppearance
@@ -85,7 +84,7 @@ fun OrgBadge(
     } else if (org.hasImage && org.icon != null) {
 
       /* --- Get image or null */
-      val image: ImageBitmap? = org.id.asOrgImageName().inOrgImages().getImage(LocalContext.current)
+      val image: ImageBitmap? = org.id.asOrgImageName().inOrgImages()?.getImage(LocalContext.current)
 
       /* --- Image UI */
       if (image != null) {

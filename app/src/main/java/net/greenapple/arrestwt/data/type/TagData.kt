@@ -10,8 +10,8 @@
 package net.greenapple.arrestwt.data.type
 
 // ====== IMPORTS ======
+import net.greenapple.arrestwt.util.data.generateColor
 import net.greenapple.arrestwt.util.serialization.ColorHexAsStringSerializer
-import net.greenapple.arrestwt.util.TagUtils
 import androidx.compose.ui.graphics.Color
 import kotlinx.serialization.Serializable
 
@@ -68,5 +68,5 @@ data class TagData(
   @Serializable(with = ColorHexAsStringSerializer::class)
   val color:          Color?      = null
 ) {
-  val effectiveColor: Color get() = color ?: TagUtils.createColorFromId(id)
+  val effectiveColor: Color get() = color ?: id.generateColor()
 }

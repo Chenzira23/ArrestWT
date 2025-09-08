@@ -84,7 +84,7 @@ fun CardBadge(
     } else if (card.hasImage) {
       
       /* ====== Get Image or Null */
-      val image: ImageBitmap? = card.uuid.asCardImageName().inCardImages().getImage(LocalContext.current)
+      val image: ImageBitmap? = card.uuid.asCardImageName().inCardImages()?.getImage(LocalContext.current)
 
       /* --- Image UI */
       if (image != null) {

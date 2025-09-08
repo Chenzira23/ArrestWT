@@ -7,7 +7,6 @@
 package net.greenapple.arrestwt.ui.page
 
 // ====== IMPORTS ======
-import net.greenapple.arrestwt.data.AssetPaths
 import net.greenapple.arrestwt.data.type.AccountData
 import net.greenapple.arrestwt.data.type.CardData
 import net.greenapple.arrestwt.ui.NavRoute
@@ -74,8 +73,8 @@ fun AccountsPage(
   var cards     by remember { mutableStateOf<List<CardData>>(emptyList()) }
 
   fun reload() {
-    accounts  = AssetPaths.accountsPath.getAllData<AccountData>(context).orEmpty()
-    cards     = AssetPaths.cardsPath.getAllData<CardData>(context).orEmpty()
+    accounts  = filePaths.accountsPath.getAllData<AccountData>(context).orEmpty()
+    cards     = filePaths.cardsPath.getAllData<CardData>(context).orEmpty()
   }
 
   var selectedAccount:  AccountData? by remember { mutableStateOf(null) }
@@ -83,7 +82,7 @@ fun AccountsPage(
 
   var entries:      List<ShowcaseCardEntry>?  = cards.map {
     ShowcaseCardEntry(
-      display = it.uuid.asCardImageName().inCardImages().getImage(context) ?: Icons.Filled.CreditCard,
+      display = it.uuid.asCardImageName().inCardImages()?.getImage(context) ?: Icons.Filled.CreditCard,
       details = it.uuid.getCard(context)?.name ?: "",
       onClick = { selectedCard = it }
     )

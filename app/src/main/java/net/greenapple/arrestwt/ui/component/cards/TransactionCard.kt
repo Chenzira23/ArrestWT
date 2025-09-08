@@ -16,7 +16,7 @@ import net.greenapple.arrestwt.ui.component.badges.TagBadge
 import net.greenapple.arrestwt.ui.component.OperationBadgeRow
 import net.greenapple.arrestwt.data.type.TagData
 import net.greenapple.arrestwt.data.type.TransactionData
-import net.greenapple.arrestwt.util.TagUtils
+//import net.greenapple.arrestwt.util.TagUtils
 import net.greenapple.arrestwt.util.TimeUtils
 import net.greenapple.arrestwt.util.data.getCard
 import androidx.compose.runtime.Composable
@@ -51,7 +51,7 @@ import android.content.Context
 fun TransactionCard(
   transaction:  TransactionData,
   hidden:       Boolean     = false,
-  tags:         List<TagData>,
+  tags:         List<TagData?>,
   colors:       CardColors? = null,
   modifier:     Modifier?   = null
 ) {
@@ -185,11 +185,13 @@ fun TransactionCard(
         /* --- UI for each tag */
         tags.forEach { tag ->
 
-          /* Box to ensure proper alignment */
-          Box(
-            contentAlignment = Alignment.Center
-          ) {
-            TagBadge(tag)
+          if (tag != null) {
+            /* Box to ensure proper alignment */
+            Box(
+              contentAlignment = Alignment.Center
+            ) {
+              TagBadge(tag)
+            }
           }
         }
       }

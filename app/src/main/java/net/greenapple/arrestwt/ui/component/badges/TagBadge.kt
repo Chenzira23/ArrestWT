@@ -10,7 +10,6 @@
 package net.greenapple.arrestwt.ui.component.badges
 
 // ====== IMPORTS ======
-import net.greenapple.arrestwt.data.AssetPaths
 import net.greenapple.arrestwt.data.type.TagData
 import net.greenapple.arrestwt.ui.appearance.ColorAppearance
 import net.greenapple.arrestwt.ui.appearance.TextAppearance
@@ -106,7 +105,7 @@ fun TagBadge(
     } else if (tag.hasImage) {
 
       /* --- Get image or null */
-      val image: ImageBitmap? = tag.id.asTagImageName().inTagImages().getImage(LocalContext.current)
+      val image: ImageBitmap? = tag.id.asTagImageName().inTagImages()?.getImage(LocalContext.current)
 
       /* --- Image UI */
       if (image != null) {
