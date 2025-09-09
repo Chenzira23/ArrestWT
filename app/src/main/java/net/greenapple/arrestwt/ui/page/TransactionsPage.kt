@@ -16,8 +16,11 @@ import net.greenapple.arrestwt.ui.component.VisibilityToggleButton
 import net.greenapple.arrestwt.ui.component.cards.TransactionCard
 import net.greenapple.arrestwt.ui.viewmodel.VisibilityViewModel
 import net.greenapple.arrestwt.data.type.TagData
-import net.greenapple.arrestwt.util.TransactionUtils
-import net.greenapple.arrestwt.util.TagUtils
+import net.greenapple.arrestwt.data.type.TransactionData
+import net.greenapple.arrestwt.util.data.getTransaction
+import net.greenapple.arrestwt.util.data.getTag
+import net.greenapple.arrestwt.util.data.getAllData
+import net.greenapple.arrestwt.util.paths.filePaths
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -39,12 +42,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.produceState
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.platform.LocalContext
 import kotlin.collections.emptyList
+import java.time.Instant
+import java.time.format.DateTimeFormatter
+import java.time.ZoneId
+import java.util.Locale
 
 // ====== TRANSACTIONS PAGE ======
 @OptIn(ExperimentalMaterial3Api::class)
@@ -59,8 +68,13 @@ fun TransactionsPage(
 
   /* --- Values for page */
   val context             = LocalContext.current
-  val recentTransactions  = remember { TransactionUtils.loadTransactionsFromJson(context, "2025-09") }
   val hidden              by visibilityViewModel.valuesHiddenFlow.collectAsState()
+
+  val format              = DateTimeFormatter.ofPattern("uuuu-MM").withLocale(Locale.US)
+  val timeframe: String   = Instant.now().atZone(ZoneId.systemDefault()).format(format)
+
+  val recentTransactions  = "${filePaths.transactionsPath}/$timeframe".getAllData<TransactionData>(context).orEmpty()
+  var transactions        by remember { mutableStateOf<List<TransactionData>>(recentTransactions) }
 
   /* ====== Create Actions */
   val actions = remember {
@@ -140,17 +154,14 @@ fun TransactionsPage(
       )
 
       /* --- Check if there are recent transactions */
-      if (recentTransactions !=  null) {
+      if (!transactions.isNullOrEmpty()) {
         LazyColumn {
 
           /* ====== Transactions */
           items(recentTransactions) { transaction ->
             val tagList by produceState(initialValue = emptyList<TagData>(), transaction.tags) {
               value = transaction.tags?.mapNotNull { tagId ->
-                TagUtils.loadTagFromJsonOrDefualt(
-                  context = context,
-                  id      = tagId
-                )
+                tagId.getTag(context)
               }?: emptyList()
             }
 
@@ -165,7 +176,7 @@ fun TransactionsPage(
 
         /* ====== No Transactions Default Body */
         DefaultPageBox(
-          text  = "Transactions could not be loaded...",
+          text  = "No transactions logged yet this month...",
         )
       }
     }

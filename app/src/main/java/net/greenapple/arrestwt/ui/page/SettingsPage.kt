@@ -15,7 +15,7 @@ import net.greenapple.arrestwt.ui.component.BackButton
 import net.greenapple.arrestwt.ui.component.settings.ButtonSetting
 import net.greenapple.arrestwt.ui.component.settings.DropdownSetting
 import net.greenapple.arrestwt.ui.component.settings.HiddenTextSetting
-import net.greenapple.arrestwt.util.ThemeUtils
+import net.greenapple.arrestwt.util.data.getAllThemes
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -47,8 +47,7 @@ fun SettingsPage(
 
   /* ====== Get Settings Values */
   /* === Theme Values */
-  val themeMap                  = remember { ThemeUtils.listDefaultJsonThemes(context) }
-  val themeOptions              = listOf("Light", "Dark") + themeMap.keys.toList()
+  val themeOptions              = listOf("Light", "Dark") + getAllThemes(context).mapNotNull { it.name }.toList()
   val selectedTheme             by settingsViewModel.selectedThemeFlow.collectAsState()
 
   /* === Page Values */

@@ -7,7 +7,6 @@
 package net.greenapple.arrestwt.ui.page
 
 // ====== IMPORTS ======
-import net.greenapple.arrestwt.data.AssetPaths
 import net.greenapple.arrestwt.data.type.AccountData
 import net.greenapple.arrestwt.data.type.CardData
 import net.greenapple.arrestwt.ui.NavRoute
@@ -68,7 +67,7 @@ fun AddCardPage(
   var accounts        by  remember { mutableStateOf<List<AccountData>>(emptyList()) }
 
   fun reload() {
-    accounts = AssetPaths.accountsPath.getAllData<AccountData>(context).orEmpty()
+    accounts = filePaths.accountsPath.getAllData<AccountData>(context).orEmpty()
   }
 
   LaunchedEffect(Unit) { reload() }
