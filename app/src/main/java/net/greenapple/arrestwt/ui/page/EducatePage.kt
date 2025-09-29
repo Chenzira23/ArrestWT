@@ -46,31 +46,6 @@ fun EducatePage(
     )
 
     LazyColumn() {
-      item {
-        /* --- Coming soon section */
-        Text(
-          text  = "Coming Soon",
-          style = TextAppearance.heading
-        )
-
-        Text(
-          text  = "[ ] - Not added\n[p] - Partially completed (not implemented)\n[x] - Debugging (implemented)\n\n[ ] Adding accounts\n[ ] Adding cards\n[p] Adding tags\n[ ] Adding transactions\n[ ] Tracking accounts\n[ ] Color changing +/- and % change badges\n[ ] Image uploading\n[ ] App backgrounds\n[ ] Exports\n[ ] Encrypted Exports / Backups\n[ ] Savings\n[ ] Budgets\n[p] Stock searching",
-          style = TextAppearance.valueSmall
-        )
-      }
-
-      item {
-        /* --- Known bugs section */
-        Text(
-          text  = "\nKnown Bugs",
-          style = TextAppearance.heading
-        )
-
-        Text(
-          text  = "[ ] Slow transaction page loading",
-          style = TextAppearance.valueSmall
-        )
-      }
     }
   }
 }
