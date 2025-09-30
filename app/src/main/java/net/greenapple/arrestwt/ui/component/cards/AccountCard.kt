@@ -74,7 +74,7 @@ fun AccountCard(
         )
         
         Text(
-          text  = "$" + account.balance.toString(),
+          text  = if (hidden) "$••,•••.••" else "$" + account.balance.toString(),
           style = TextAppearance.valueMedium
         )
       }

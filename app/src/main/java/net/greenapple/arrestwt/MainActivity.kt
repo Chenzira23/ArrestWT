@@ -194,9 +194,10 @@ class MainActivity: ComponentActivity()
         }
         composable(NavRoute.Accounts.route)       {
           AccountsPage(
-            onAddAccountClick = onAddAccountClick,
-            onAddCardClick    = onAddCardClick,
-            onBack            = onBack
+            visibilityViewModel = visibilityViewModel,
+            onAddAccountClick   = onAddAccountClick,
+            onAddCardClick      = onAddCardClick,
+            onBack              = onBack
           )
         }
         composable(NavRoute.Tags.route)           { TagsPage(onBack) }
