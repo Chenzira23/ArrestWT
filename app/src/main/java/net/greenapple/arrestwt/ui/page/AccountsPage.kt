@@ -22,6 +22,8 @@ import net.greenapple.arrestwt.ui.component.cards.ShowcaseCard
 import net.greenapple.arrestwt.ui.component.cards.ShowcaseCardEntry
 import net.greenapple.arrestwt.ui.component.popups.EditAccountPopup
 import net.greenapple.arrestwt.ui.component.popups.EditCardPopup
+import net.greenapple.arrestwt.ui.component.VisibilityToggleButton
+import net.greenapple.arrestwt.ui.viewmodel.VisibilityViewModel
 import net.greenapple.arrestwt.util.data.*
 import net.greenapple.arrestwt.util.paths.*
 import androidx.compose.foundation.layout.Box
@@ -41,6 +43,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CreditCard
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.mutableStateOf
@@ -61,6 +64,7 @@ import android.content.Context
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AccountsPage(
+  visibilityViewModel:  VisibilityViewModel,
   onAddAccountClick:  () -> Unit = {},
   onAddCardClick:     () -> Unit = {},
   onBack:             () -> Unit = {}
@@ -70,6 +74,7 @@ fun AccountsPage(
   val context: Context  = LocalContext.current
   val lifecycleOwner    = LocalLifecycleOwner.current
 
+  val hidden    by visibilityViewModel.valuesHiddenFlow.collectAsState()
   var accounts  by remember { mutableStateOf<List<AccountData>>(emptyList()) }
   var cards     by remember { mutableStateOf<List<CardData>>(emptyList()) }
 
@@ -124,7 +129,22 @@ fun AccountsPage(
       CenterAlignedTopAppBar(
 
         /* --- Back button */
-        navigationIcon = { BackButton(onBack = onBack) },
+        navigationIcon = {
+          Row(
+            horizontalArrangement = Arrangement.spacedBy(6.dp),
+            verticalAlignment     = Alignment.CenterVertically,
+            modifier              = Modifier
+              .padding(end = 6.dp)
+          ) {
+
+            BackButton(onBack = onBack)
+            
+            VisibilityToggleButton(
+              visibilityViewModel = visibilityViewModel,
+              hidden              = hidden
+            )
+          }
+        },
 
         /* --- Add Account page title */
         title = {
@@ -171,6 +191,7 @@ fun AccountsPage(
           items(accounts) {
             AccountCard(
               account = it,
+              hidden  = hidden,
               onClick = {
                 selectedAccount = it
               }
